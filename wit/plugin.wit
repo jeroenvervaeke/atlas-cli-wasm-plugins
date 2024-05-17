@@ -1,0 +1,16 @@
+package atlascli:plugin@0.0.1;
+
+interface info {
+    name: func() -> string;
+    sub-commands: func() -> list<string>;
+    run: func() -> result<_, string>;
+}
+
+interface host {
+    bearer-token: func() -> string;
+}
+
+world plugin {
+    import host;
+    export info;
+}
