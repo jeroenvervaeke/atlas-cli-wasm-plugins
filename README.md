@@ -4,6 +4,7 @@ This project is a proof of concept/experiment to determine whether it makes sens
 
 ## Dependencies
 - https://www.rust-lang.org/tools/install
+- wasm32 wasi target: `rustup target add wasm32-wasi`
 
 ## Run the project
 ```sh
