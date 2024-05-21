@@ -10,13 +10,13 @@ build_cli:
 
 .PHONY: build_atlas_plugin
 build_atlas_plugin:
-	(cd plugins/atlas-plugin; cargo +nightly build --release)
+	(cd plugins/atlas-plugin; cargo build --release)
 	mkdir -p bin/plugins/
 	cp target/wasm32-wasi/release/atlas_plugin.wasm bin/plugins/atlas_plugin.plugin
 
 .PHONY: build_test_plugin
 build_test_plugin:
-	(cd plugins/test-plugin; cargo +nightly build --release)
+	(cd plugins/test-plugin; cargo build --release)
 	mkdir -p bin/plugins/
 	cp target/wasm32-wasi/release/test_plugin.wasm bin/plugins/test_plugin.plugin
 
