@@ -16,7 +16,7 @@ wasmtime-wasi = "20.0.2"
 wit-component = "0.207.0"
 
 [workspace]
-members = ["crates/*", "plugins/*"]
+members = ["plugins/*"]
 exclude = ["plugins/.cargo/"]
 resolver = "2"
 
