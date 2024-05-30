@@ -20,6 +20,11 @@ build_test_plugin:
 	mkdir -p bin/plugins/
 	cp target/wasm32-wasi/release/test_plugin.wasm bin/plugins/test_plugin.plugin
 
+.PHONY: build_go_plugin
+build_go_plugin:
+	mkdir -p bin/plugins/
+	(cd plugins/go-plugin/; tinygo build -o ../../bin/plugins/go.plugin -target=wasi main.go;wasm-tools component embed --world plugin ../../wit/plugin.wit ../../bin/plugins/go.plugin -o ../../bin/plugins/go.plugin)
+
 .PHONY: run
 run: clean build_cli build_atlas_plugin build_test_plugin
 	(cd bin;./atlas-cli-ng)

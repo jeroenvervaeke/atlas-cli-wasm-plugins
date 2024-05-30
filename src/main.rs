@@ -1,3 +1,5 @@
+use std::collections::BTreeSet;
+
 use anyhow::{Context, Result};
 use plugin::Manager;
 
@@ -31,7 +33,7 @@ async fn main() -> Result<()> {
     Ok(())
 }
 
-fn print_usage(subcommands: Vec<String>) {
+fn print_usage(subcommands: BTreeSet<String>) {
     println!("Usage: atlas-cli-ng [COMMAND]");
     println!();
     println!("Commands:");

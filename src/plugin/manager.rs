@@ -1,4 +1,4 @@
-use std::collections::HashSet;
+use std::collections::{BTreeSet, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
@@ -96,13 +96,15 @@ impl Manager {
         Ok(plugin_names)
     }
 
-    pub async fn subcommands(&mut self) -> Result<Vec<String>> {
-        let mut subcommands = Vec::with_capacity(self.plugins.len());
+    pub async fn subcommands(&mut self) -> Result<BTreeSet<String>> {
+        let mut subcommands = BTreeSet::new();
 
         for plugin in &mut self.plugins {
-            let mut plugin_subcommands = plugin.subcommands().await.context("get plugin name")?;
+            let plugin_subcommands = plugin.subcommands().await.context("get plugin name")?;
 
-            subcommands.append(&mut plugin_subcommands);
+            for plugin_subcommand in plugin_subcommands {
+                subcommands.insert(plugin_subcommand);
+            }
         }
 
         Ok(subcommands)
