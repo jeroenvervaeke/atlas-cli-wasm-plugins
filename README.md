@@ -1,4 +1,4 @@
-# Atlas CLI (ng)
+# Atlas CLI wasm Plugins
 ## Description
 This project is a proof of concept/experiment to determine whether it makes sense to use WebAssembly components as the base of a plugin system for AtlasCLI.
 
